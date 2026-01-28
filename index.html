@@ -1,147 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Filly AI – Video Downloader</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- Tailwind CDN -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Filly AI - Download Videos</title>
+  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Custom Tailwind Config -->
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            primary: '#7C3AED',
-            secondary: '#22D3EE'
-          }
-        }
-      }
-    }
-  </script>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
+<body class="bg-gray-900 text-white font-sans">
 
-<body class="dark bg-gray-950 text-gray-100 font-sans">
-
-  <!-- ================= HEADER ================= -->
-  <header class="text-center py-10 px-4">
-    <h1 class="text-4xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-      Filly AI
-    </h1>
-    <p class="mt-3 text-gray-400">
-      Download videos in high quality — fast & free
-    </p>
+  <!-- Header -->
+  <header class="bg-gradient-to-r from-purple-600 to-indigo-600 p-6 text-center rounded-b-lg shadow-lg">
+    <h1 class="text-4xl font-bold">Filly AI</h1>
+    <p class="mt-2 text-lg">Download videos in high quality — fast & free</p>
   </header>
 
-  <!-- ================= MAIN CARD ================= -->
-  <main class="max-w-xl mx-auto px-4">
-    <div class="bg-gray-900 rounded-2xl p-6 shadow-xl">
+  <!-- Video Download Form -->
+  <section class="mt-8 mx-4 md:mx-20 p-6 bg-gray-800 rounded-lg shadow-lg">
+    <h2 class="text-2xl font-semibold mb-4">Paste your video link below:</h2>
+    <input id="videoLink" type="text" placeholder="Paste video link here" class="w-full p-3 rounded-md text-black focus:outline-none mb-4">
+    <button onclick="analyzeVideo()" class="w-full p-3 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-md font-semibold hover:opacity-90 transition">Analyze Video</button>
+    <div id="result" class="mt-6 p-4 bg-gray-700 rounded-md hidden"></div>
+  </section>
 
-      <!-- Input -->
-      <label class="block text-sm text-gray-400 mb-2">
-        Paste video link
-      </label>
-      <input
-        id="videoUrl"
-        type="url"
-        placeholder="https://www.tiktok.com/..."
-        class="w-full rounded-xl bg-gray-800 border border-gray-700 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary"
-      />
+  <!-- Supported Platforms -->
+  <section class="mt-8 mx-4 md:mx-20 p-6 bg-gray-800 rounded-lg shadow-lg">
+    <h2 class="text-2xl font-semibold mb-4">Supported Platforms</h2>
+    <ul class="list-disc list-inside">
+      <li>TikTok</li>
+      <li>Instagram</li>
+      <li>Facebook</li>
+      <li>YouTube</li>
+    </ul>
+  </section>
 
-      <!-- Button -->
-      <button
-        onclick="analyzeVideo()"
-        class="mt-4 w-full bg-gradient-to-r from-primary to-secondary hover:opacity-90 transition rounded-xl py-3 font-semibold">
-        Analyze Video
-      </button>
-
-      <!-- ================= RESULT (SIMULATED) ================= -->
-      <div id="result" class="hidden mt-6">
-
-        <div class="bg-gray-800 rounded-xl p-4 space-y-3">
-
-          <p class="text-sm text-gray-400">
-            Platform detected:
-            <span id="platform" class="font-semibold text-white"></span>
-          </p>
-
-          <div>
-            <p class="text-sm text-gray-400 mb-2">Available quality</p>
-            <div class="flex gap-2 flex-wrap">
-              <span class="px-3 py-1 rounded-full bg-gray-700 text-sm">720p</span>
-              <span class="px-3 py-1 rounded-full bg-gray-700 text-sm">1080p</span>
-              <span class="px-3 py-1 rounded-full bg-gray-700 text-sm">4K (if available)</span>
-            </div>
-          </div>
-
-          <button
-            class="w-full mt-3 bg-green-600 hover:bg-green-700 transition rounded-xl py-3 font-semibold">
-            Download Video
-          </button>
-
-          <p class="text-xs text-gray-500 text-center">
-            Watermark removal supported when possible.
-          </p>
-        </div>
-
-      </div>
+  <!-- Contact Section -->
+  <section class="mt-8 mx-4 md:mx-20 p-6 bg-gray-800 rounded-lg shadow-lg">
+    <h2 class="text-2xl font-semibold mb-4">Contact Me</h2>
+    <div class="flex flex-wrap gap-4 text-lg">
+      <a href="https://wa.link/f79u9m" target="_blank" class="flex items-center gap-2 hover:text-green-400">
+        <i class="fab fa-whatsapp"></i> WhatsApp
+      </a>
+      <a href="tel:+244926894051" class="flex items-center gap-2 hover:text-green-400">
+        <i class="fas fa-phone"></i> Call
+      </a>
+      <a href="t.me/fillynews220" target="_blank" class="flex items-center gap-2 hover:text-blue-400">
+        <i class="fab fa-telegram"></i> Telegram
+      </a>
+      <a href="https://www.facebook.com/profile.php?id=100077365736604" target="_blank" class="flex items-center gap-2 hover:text-blue-600">
+        <i class="fab fa-facebook"></i> Facebook
+      </a>
+      <a href="https://www.instagram.com/filly_news?igsh=MW9qeTB2YjRlZWF4NA==" target="_blank" class="flex items-center gap-2 hover:text-pink-500">
+        <i class="fab fa-instagram"></i> Instagram
+      </a>
+      <a href="https://www.tiktok.com/@filly.news?_r=1&_t=ZM-91njGzxWDMW" target="_blank" class="flex items-center gap-2 hover:text-white">
+        <i class="fab fa-tiktok"></i> TikTok
+      </a>
+      <a href="https://www.youtube.com/@Filly_News" target="_blank" class="flex items-center gap-2 hover:text-red-600">
+        <i class="fab fa-youtube"></i> YouTube
+      </a>
     </div>
+  </section>
 
-    <!-- ================= INFO SECTION ================= -->
-    <section class="mt-10 space-y-6">
-      <div class="bg-gray-900 rounded-2xl p-6">
-        <h2 class="text-xl font-semibold mb-3">Supported platforms</h2>
-        <ul class="space-y-2 text-gray-400 text-sm">
-          <li>• TikTok (with or without watermark)</li>
-          <li>• Instagram Reels & Posts</li>
-          <li>• Facebook Videos</li>
-          <li>• YouTube (up to 4K if available)</li>
-        </ul>
-      </div>
+  <!-- Disclaimer -->
+  <section class="mt-8 mx-4 md:mx-20 p-6 bg-gray-800 rounded-lg shadow-lg">
+    <p class="text-gray-300 text-sm">Filly AI is for personal and educational use. Users are responsible for the content downloaded.</p>
+  </section>
 
-      <!-- ================= DISCLAIMER ================= -->
-      <div class="bg-gray-900 rounded-2xl p-6 text-sm text-gray-400">
-        <h3 class="font-semibold text-white mb-2">Disclaimer</h3>
-        <p>
-          Filly AI is intended for personal and educational use only.
-          Users are fully responsible for how downloaded content is used.
-          Please respect copyright laws and platform terms of service.
-        </p>
-      </div>
-    </section>
-  </main>
-
-  <!-- ================= FOOTER ================= -->
-  <footer class="mt-16 border-t border-gray-800 py-6 text-center text-sm text-gray-500">
-    <div class="flex justify-center gap-6 mb-3">
-      <a href="#" class="hover:text-white">Terms of Use</a>
-      <a href="#" class="hover:text-white">Privacy Policy</a>
-      <a href="#" class="hover:text-white">Contact</a>
-    </div>
-    <p>© 2026 Filly AI. All rights reserved.</p>
+  <!-- Footer -->
+  <footer class="mt-8 p-6 text-center text-gray-400">
+    <a href="#" class="hover:text-white mx-2">Terms of Use</a> |
+    <a href="#" class="hover:text-white mx-2">Privacy Policy</a> |
+    <a href="#contact" class="hover:text-white mx-2">Contact</a>
   </footer>
 
-  <!-- ================= JAVASCRIPT ================= -->
+  <!-- JS for Video Analysis Simulation -->
   <script>
-    function analyzeVideo() {
-      const url = document.getElementById("videoUrl").value.toLowerCase();
-      const platformEl = document.getElementById("platform");
-      const resultEl = document.getElementById("result");
-
+    async function analyzeVideo() {
+      const link = document.getElementById("videoLink").value.trim();
+      if(!link) return alert("Please enter a video link.");
+      // Show result div
+      const resultDiv = document.getElementById("result");
+      resultDiv.classList.remove("hidden");
+      // Simulate platform detection
       let platform = "Unknown";
+      if(link.includes("tiktok")) platform = "TikTok";
+      else if(link.includes("instagram")) platform = "Instagram";
+      else if(link.includes("facebook")) platform = "Facebook";
+      else if(link.includes("youtube")) platform = "YouTube";
 
-      if (url.includes("tiktok")) platform = "TikTok";
-      else if (url.includes("instagram")) platform = "Instagram";
-      else if (url.includes("facebook")) platform = "Facebook";
-      else if (url.includes("youtube") || url.includes("youtu.be")) platform = "YouTube";
-
-      platformEl.textContent = platform;
-      resultEl.classList.remove("hidden");
+      resultDiv.innerHTML = `
+        <p class="mb-2">Platform: <strong>${platform}</strong></p>
+        <p class="mb-2">Available Qualities:</p>
+        <div class="flex gap-2 mb-4">
+          <button class="px-3 py-1 bg-purple-600 rounded hover:opacity-80">720p</button>
+          <button class="px-3 py-1 bg-purple-600 rounded hover:opacity-80">1080p</button>
+          <button class="px-3 py-1 bg-purple-600 rounded hover:opacity-80">4K</button>
+        </div>
+        <a href="#" class="px-4 py-2 bg-gradient-to-r from-purple-600 to-indigo-600 rounded hover:opacity-90 inline-block">Download</a>
+      `;
     }
   </script>
-
 </body>
   </html>
