@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Filly AI – Video Downloader</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Custom Tailwind Config -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#7C3AED',
+            secondary: '#22D3EE'
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="dark bg-gray-950 text-gray-100 font-sans">
+
+  <!-- ================= HEADER ================= -->
+  <header class="text-center py-10 px-4">
+    <h1 class="text-4xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+      Filly AI
+    </h1>
+    <p class="mt-3 text-gray-400">
+      Download videos in high quality — fast & free
+    </p>
+  </header>
+
+  <!-- ================= MAIN CARD ================= -->
+  <main class="max-w-xl mx-auto px-4">
+    <div class="bg-gray-900 rounded-2xl p-6 shadow-xl">
+
+      <!-- Input -->
+      <label class="block text-sm text-gray-400 mb-2">
+        Paste video link
+      </label>
+      <input
+        id="videoUrl"
+        type="url"
+        placeholder="https://www.tiktok.com/..."
+        class="w-full rounded-xl bg-gray-800 border border-gray-700 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary"
+      />
+
+      <!-- Button -->
+      <button
+        onclick="analyzeVideo()"
+        class="mt-4 w-full bg-gradient-to-r from-primary to-secondary hover:opacity-90 transition rounded-xl py-3 font-semibold">
+        Analyze Video
+      </button>
+
+      <!-- ================= RESULT (SIMULATED) ================= -->
+      <div id="result" class="hidden mt-6">
+
+        <div class="bg-gray-800 rounded-xl p-4 space-y-3">
+
+          <p class="text-sm text-gray-400">
+            Platform detected:
+            <span id="platform" class="font-semibold text-white"></span>
+          </p>
+
+          <div>
+            <p class="text-sm text-gray-400 mb-2">Available quality</p>
+            <div class="flex gap-2 flex-wrap">
+              <span class="px-3 py-1 rounded-full bg-gray-700 text-sm">720p</span>
+              <span class="px-3 py-1 rounded-full bg-gray-700 text-sm">1080p</span>
+              <span class="px-3 py-1 rounded-full bg-gray-700 text-sm">4K (if available)</span>
+            </div>
+          </div>
+
+          <button
+            class="w-full mt-3 bg-green-600 hover:bg-green-700 transition rounded-xl py-3 font-semibold">
+            Download Video
+          </button>
+
+          <p class="text-xs text-gray-500 text-center">
+            Watermark removal supported when possible.
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ================= INFO SECTION ================= -->
+    <section class="mt-10 space-y-6">
+      <div class="bg-gray-900 rounded-2xl p-6">
+        <h2 class="text-xl font-semibold mb-3">Supported platforms</h2>
+        <ul class="space-y-2 text-gray-400 text-sm">
+          <li>• TikTok (with or without watermark)</li>
+          <li>• Instagram Reels & Posts</li>
+          <li>• Facebook Videos</li>
+          <li>• YouTube (up to 4K if available)</li>
+        </ul>
+      </div>
+
+      <!-- ================= DISCLAIMER ================= -->
+      <div class="bg-gray-900 rounded-2xl p-6 text-sm text-gray-400">
+        <h3 class="font-semibold text-white mb-2">Disclaimer</h3>
+        <p>
+          Filly AI is intended for personal and educational use only.
+          Users are fully responsible for how downloaded content is used.
+          Please respect copyright laws and platform terms of service.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="mt-16 border-t border-gray-800 py-6 text-center text-sm text-gray-500">
+    <div class="flex justify-center gap-6 mb-3">
+      <a href="#" class="hover:text-white">Terms of Use</a>
+      <a href="#" class="hover:text-white">Privacy Policy</a>
+      <a href="#" class="hover:text-white">Contact</a>
+    </div>
+    <p>© 2026 Filly AI. All rights reserved.</p>
+  </footer>
+
+  <!-- ================= JAVASCRIPT ================= -->
+  <script>
+    function analyzeVideo() {
+      const url = document.getElementById("videoUrl").value.toLowerCase();
+      const platformEl = document.getElementById("platform");
+      const resultEl = document.getElementById("result");
+
+      let platform = "Unknown";
+
+      if (url.includes("tiktok")) platform = "TikTok";
+      else if (url.includes("instagram")) platform = "Instagram";
+      else if (url.includes("facebook")) platform = "Facebook";
+      else if (url.includes("youtube") || url.includes("youtu.be")) platform = "YouTube";
+
+      platformEl.textContent = platform;
+      resultEl.classList.remove("hidden");
+    }
+  </script>
+
+</body>
+  </html>
